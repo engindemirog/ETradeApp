@@ -20,7 +20,7 @@ namespace Business.Concretes {
         public List<Product> GetAll() {
 
             //business rules
-            return _productDal.GetAll();
+            return _productDal.GetList().ToList();
         }
     }
 }
