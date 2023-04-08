@@ -5,6 +5,8 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
+//Crud
+//Type
 namespace DataAccess.Repository
 {
     public interface IEntityRepository<T>

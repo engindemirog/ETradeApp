@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\Responses\" />
+  </ItemGroup>
+
 </Project>

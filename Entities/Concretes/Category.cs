@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//domain objects
 namespace Entities.Concretes
 {
     public class Category:IEntity

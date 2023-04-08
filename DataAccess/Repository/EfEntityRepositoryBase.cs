@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-
+//orm - object relational mapping
 namespace DataAccess.Repository
 {
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
