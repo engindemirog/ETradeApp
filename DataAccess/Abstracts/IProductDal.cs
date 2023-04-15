@@ -11,5 +11,8 @@ namespace DataAccess.Abstracts
     public interface IProductDal:IEntityRepository<Product>
     {
         //custom operations
+        //method overloading
+        List<Product> GetAllWithCategory();
+        List<Product> GetAllWithCategory(string productName);
     }
 }

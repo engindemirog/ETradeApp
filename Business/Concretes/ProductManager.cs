@@ -1,5 +1,6 @@
 ﻿using Business.Abstracts;
 using Business.Dtos.Requests;
+using Business.Dtos.Responses;
 using Business.Rules;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -49,15 +50,51 @@ namespace Business.Concretes {
             //if
         }
 
-        public List<Product> GetAll() {
+        public List<GetProductResponse> GetAll() {
 
             //business rules
-            return _productDal.GetList().ToList();
+            List<Product> products = _productDal.GetAllWithCategory().ToList();
+
+            List<GetProductResponse> getProductResponses = new List<GetProductResponse>();
+            
+            foreach (Product product in products)
+            {
+                GetProductResponse getProductResponse = new GetProductResponse();
+                getProductResponse.Name = product.Name;
+                getProductResponse.Description = product.Description;
+                getProductResponse.UnitPrice = product.UnitPrice;
+                getProductResponse.Id = product.Id;
+                getProductResponse.CategoryId = product.CategoryId;
+                getProductResponse.CategoryName=product.Category.Name;
+
+                getProductResponses.Add(getProductResponse);
+            }
+
+            return getProductResponses;
+
         }
 
-        public List<Product> GetAll(string productName)
+        public List<GetProductResponse> GetAll(string productName)
         {
-            return _productDal.GetList(p=>p.Name.Contains(productName)).ToList();
+            List<Product> products = 
+                _productDal.GetAllWithCategory(productName).ToList();
+
+            List<GetProductResponse> getProductResponses = new List<GetProductResponse>();
+
+            foreach (Product product in products)
+            {
+                GetProductResponse getProductResponse = new GetProductResponse();
+                getProductResponse.Name = product.Name;
+                getProductResponse.Description = product.Description;
+                getProductResponse.UnitPrice = product.UnitPrice;
+                getProductResponse.Id = product.Id;
+                getProductResponse.CategoryId = product.CategoryId;
+                getProductResponse.CategoryName = product.Category.Name;
+
+                getProductResponses.Add(getProductResponse);
+            }
+
+            return getProductResponses;
         }
     }
 }

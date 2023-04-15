@@ -1,4 +1,5 @@
 ﻿using Business.Dtos.Requests;
+using Business.Dtos.Responses;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ namespace Business.Abstracts
     public interface IProductService
     {
         //overloading
-        List<Product> GetAll();
-        List<Product> GetAll(string productName);
+        List<GetProductResponse> GetAll();
+        List<GetProductResponse> GetAll(string productName);
 
         void Add(CreateProductRequest createProductRequest);
     }
